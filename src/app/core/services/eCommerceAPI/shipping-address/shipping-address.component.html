@@ -1,0 +1,188 @@
+<div class="w-9/12 mx-auto my-7">
+  <form action="" [formGroup]="shippingAddress" (ngSubmit)="checkout_order()">
+    <!------------------------------ user_Details -------------------------------->
+    <div class="mb-6">
+      <label for="details" class="block mb-2 text-xl font-medium text-green-900"
+        >Details:</label
+      >
+      <!------------------------------ user_Input------------------- -->
+      <input
+        formControlName="details"
+        type="text"
+        id="details"
+        class="bg-gray-50 border border-gray-300 text-green-900 text-xl rounded-lg block w-full p-2.5"
+      />
+      <!------------------------- validations -->
+      @if (shippingAddress.get('details')?.errors &&
+      shippingAddress.get('details')?.touched) {
+      @if(shippingAddress.get('details')?.getError('required')) {
+      <div
+        class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 mt-3"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div class="text-xl">
+          <span class="font-medium">Danger alert!</span> Details is required
+        </div>
+      </div>
+      } @else if (shippingAddress.get('details')?.getError('pattern')) {
+      <div
+        class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 mt-3"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div class="text-xl">
+          <span class="font-medium">Warning alert!</span> Please enter a valid
+          details (at least 5 characters, only letters, numbers, spaces, commas,
+          dots, and hyphens are allowed).
+        </div>
+      </div>
+      } }
+    </div>
+    <!------------------------------ user_Phone -------------------------------->
+    <div class="mb-6">
+      <label for="phone" class="block mb-2 text-xl font-medium text-green-900"
+        >Phone:</label
+      >
+      <input
+        formControlName="phone"
+        type="tel"
+        id="phone"
+        class="bg-gray-50 border border-gray-300 text-green-900 text-xl rounded-lg block w-full p-2.5"
+      />
+      <!------------------------- validations -->
+      @if (shippingAddress.get('phone')?.errors &&
+      shippingAddress.get('phone')?.touched) {
+      @if(shippingAddress.get('phone')?.getError('required')) {
+      <div
+        class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 mt-3"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div class="text-xl">
+          <span class="font-medium">Danger alert!</span> Phone is required
+        </div>
+      </div>
+      } @else if (shippingAddress.get('phone')?.getError('pattern')) {
+      <div
+        class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 mt-3"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div class="text-xl">
+          <span class="font-medium">Warning alert!</span> Phone number must
+          start with 010, 011, 012, or 015 and contain exactly 11 digits.
+        </div>
+      </div>
+      } }
+    </div>
+    <!------------------------------ user_City -------------------------------->
+    <div class="mb-6">
+      <label for="city" class="block mb-2 text-xl font-medium text-green-900"
+        >City:</label
+      >
+      <input
+        formControlName="city"
+        type="text"
+        id="city"
+        class="bg-gray-50 border border-gray-300 text-green-900 text-xl rounded-lg block w-full p-2.5"
+      />
+      @if (shippingAddress.get('city')?.errors &&
+      shippingAddress.get('city')?.touched) {
+      @if(shippingAddress.get('city')?.getError('required')) {
+      <div
+        class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 mt-3"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div class="text-xl">
+          <span class="font-medium">Danger alert!</span> city is required
+        </div>
+      </div>
+      } @else if (shippingAddress.get('city')?.getError('pattern')) {
+      <div
+        class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 mt-3"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div class="text-xl">
+          <span class="font-medium">Warning alert!</span> Please enter only
+          Arabic or English letters, spaces, or hyphens (2 to 50 characters)
+        </div>
+      </div>
+      } }
+    </div>
+    <button
+      type="submit"
+      class="text-white bg-green-600 font-medium rounded-lg text-2xl px-5 py-2.5 text-center me-2 mb-2 disabled:bg-green-400"
+    >
+      Checkout
+    </button>
+  </form>
+</div>
